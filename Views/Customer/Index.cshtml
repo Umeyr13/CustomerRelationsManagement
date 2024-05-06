@@ -1,0 +1,106 @@
+﻿@model EmployeeModel
+
+@{
+    ViewBag.Title = "aaa";
+    Layout = "../DefaultLayout/Index";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Müşteri Paneli</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>CRM<small>Müşteriler</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="#">Settings 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <form class="form-horizontal form-label-left " method="post" novalidate>
+                            <div class="section" style="margin: 5px;">
+                                <h2>Müşteri Listesi</h2>
+                                <button>
+                                    @Html.ActionLink("Yeni Müşteri", "AddCustomer", null, new { @class = "btn btn-success btn-xl" })
+                                </button>
+
+                                <table class="table">
+                                    <tr>
+                                        <th>
+                                            Şirket Adı
+                                        </th>
+                                        <th>
+                                            İletişim Kurulan Kişi
+                                        </th>
+                                        <th>
+                                            Email adresi
+                                        </th>
+                                        <th>
+                                            Telefon Numarası
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                    </tr>
+
+                                    @foreach (var item in Model.allCustomers)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CompanyName)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ContactPerson)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                            </td>
+
+                                            <td>
+                                                @Html.ActionLink("Bilgileri Düzenle", "EditCustomer", new { Id = item.Id })
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+                        </form>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

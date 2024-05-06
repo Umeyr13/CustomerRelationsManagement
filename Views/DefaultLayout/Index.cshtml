@@ -1,0 +1,28 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("../Shared/Components/_LayoutHeaderPartial/default.cshtml")
+
+<body class="nav-md footer_fixed">
+    <div class="container body">
+        <div class="main_container">
+          
+            @await Html.PartialAsync("../Shared/Components/_LayoutSidebarPartial/default.cshtml")
+
+            @await Html.PartialAsync("../Shared/Components/_LayoutNavbarPartial/default.cshtml")
+
+            <div class="content" role="main">
+
+                @RenderBody()
+
+            </div>
+
+            @await Html.PartialAsync("../Shared/Components/_LayoutFooterPartial/default.cshtml")
+
+        </div>
+    </div>
+
+</body>
+
+</html>
